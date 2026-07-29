@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recursos de Matemáticas para estudiantes colombianos de 6.º a 11.º: explicaciones, videos, talleres y cuestionarios.">
+  <title>Matemáticas para aprender, repasar y practicar</title>
+  <style>
+    :root {
+      /* Paleta institucional inspirada en el sitio y el escudo:
+         verde, amarillo, azul celeste, gris y blanco. */
+      --ink: #252a28;
+      --muted: #5c6862;
+      --paper: #ffffff;
+      --wash: #f3f8f5;
+      --line: #d6e3dc;
+      --navy: #009c50;
+      --navy-dark: #005f35;
+      --mint: #dff4e8;
+      --mint-dark: #007b41;
+      --blue: #e0f6fb;
+      --blue-dark: #08768e;
+      --sand: #fff8b8;
+      --sand-dark: #716600;
+      --institutional-yellow: #fcef05;
+      --institutional-cyan: #3bc4e5;
+      --institutional-gray: #b1a7a5;
+      --danger: #a43131;
+      --success: #007b41;
+      --shadow: 0 12px 34px rgba(0, 95, 53, .11);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--wash);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.62;
+    }
+    a { color: var(--navy); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid #cfc300; outline-offset: 3px; }
+    .skip-link {
+      position: fixed;
+      z-index: 999;
+      left: 1rem;
+      top: -5rem;
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      color: white;
+      background: var(--navy-dark);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      border-bottom: 3px solid var(--institutional-yellow);
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 5px 20px rgba(0, 95, 53, .08);
+    }
+    .nav-wrap {
+      width: min(1180px, calc(100% - 2rem));
+      min-height: 72px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      min-width: max-content;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 850;
+    }
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--navy);
+      box-shadow: inset 0 -4px 0 var(--institutional-yellow);
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+    }
+    .main-nav {
+      display: flex;
+      gap: .25rem;
+      margin-left: auto;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      min-width: max-content;
+      padding: .6rem .72rem;
+      border-radius: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .89rem;
+      font-weight: 720;
+    }
+    .main-nav a:hover { color: var(--navy-dark); background: var(--mint); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(59, 196, 229, .30) 0 110px, transparent 111px),
+        radial-gradient(circle at 92% 72%, rgba(252, 239, 5, .22) 0 210px, transparent 211px),
+        linear-gradient(135deg, var(--navy-dark), var(--navy));
+    }
+    .hero-inner {
+      width: min(1180px, calc(100% - 2rem));
+      min-height: 510px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 4.5rem 0;
+    }
+    .eyebrow {
+      margin: 0 0 .8rem;
+      color: #fff572;
+      font-size: .81rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5.4rem);
+      line-height: .99;
+      letter-spacing: -.055em;
+    }
+    .hero-copy {
+      max-width: 680px;
+      margin: 1.4rem 0 1.8rem;
+      color: #effbf4;
+      font-size: clamp(1.04rem, 2vw, 1.23rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      padding: .7rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #fff;
+      background: var(--navy);
+      text-decoration: none;
+      font-weight: 780;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .button:hover { transform: translateY(-1px); background: var(--navy-dark); }
+    .button.light { color: var(--navy-dark); background: #fff; }
+    .hero .button.light {
+      color: #222820;
+      background: var(--institutional-yellow);
+      box-shadow: 0 8px 22px rgba(35, 40, 32, .18);
+    }
+    .hero .button.light:hover { background: #fff45c; }
+    .button.ghost { border-color: rgba(255,255,255,.5); background: transparent; }
+    .button.secondary { color: var(--navy); border-color: var(--line); background: #fff; }
+    .button.small { min-height: 40px; padding: .55rem .8rem; font-size: .9rem; }
+    .hero-panel {
+      position: relative;
+      min-height: 300px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 28px;
+      background: rgba(255,255,255,.1);
+      box-shadow: 0 22px 70px rgba(0,0,0,.16);
+    }
+    .math-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .8rem;
+      padding: 1rem;
+      border-radius: 16px;
+      color: var(--ink);
+      background: #fff;
+      font-weight: 800;
+    }
+    .math-line:nth-child(2) { margin-left: 2rem; background: var(--blue); }
+    .math-line:nth-child(3) { margin-right: 1.2rem; background: var(--sand); }
+    .math-symbol { font-family: Georgia, serif; font-size: 1.45rem; }
+
+    main { display: block; }
+    .container { width: min(1180px, calc(100% - 2rem)); margin: auto; }
+    .section { padding: 4.4rem 0; }
+    .section-heading { max-width: 790px; margin-bottom: 1.7rem; }
+    .section-heading h2 {
+      margin: 0 0 .55rem;
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .intro-grid, .study-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .info-card {
+      padding: 1.3rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(0, 95, 53, .06);
+    }
+    .info-card .number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      margin-bottom: .8rem;
+      place-items: center;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--navy);
+      font-weight: 850;
+    }
+    .info-card h3 { margin: 0 0 .45rem; font-size: 1.05rem; }
+    .info-card p { margin: 0; color: var(--muted); }
+
+    .cycle {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+    .cycle:nth-of-type(even) { background: #f8fbfb; }
+    .cycle-label {
+      display: inline-flex;
+      margin-bottom: .75rem;
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      color: var(--mint-dark);
+      background: var(--mint);
+      font-size: .82rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .cycle-89 .cycle-label { color: var(--blue-dark); background: var(--blue); }
+    .cycle-1011 .cycle-label { color: var(--sand-dark); background: var(--sand); }
+    .topic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+    .topic-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .topic-top { padding: 1.45rem 1.45rem 1.1rem; }
+    .topic-index {
+      display: inline-block;
+      margin-bottom: .8rem;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .topic-card h3 { margin: 0 0 .65rem; font-size: 1.35rem; line-height: 1.2; }
+    .topic-card p { margin: 0; color: var(--muted); }
+    .topic-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: auto;
+      padding: 0 1.45rem 1.45rem;
+    }
+    .topic-details {
+      margin: 0 1.45rem 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .topic-details summary {
+      min-height: 46px;
+      padding: .8rem 0;
+      cursor: pointer;
+      color: var(--navy);
+      font-weight: 820;
+    }
+    .topic-details summary::marker { color: var(--navy); }
+    .topic-details[open] summary { border-bottom: 1px solid var(--line); }
+    .details-content { padding: 1rem 0 .2rem; }
+    .details-content h4 { margin: 1rem 0 .45rem; font-size: 1rem; }
+    .details-content h4:first-child { margin-top: 0; }
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      padding: 0;
+      list-style: none;
+    }
+    .concepts li {
+      padding: .32rem .58rem;
+      border-radius: 999px;
+      color: var(--navy-dark);
+      background: var(--blue);
+      font-size: .84rem;
+      font-weight: 720;
+    }
+    .formula {
+      margin: .75rem 0;
+      padding: .8rem;
+      overflow-x: auto;
+      border-left: 4px solid var(--navy);
+      border-radius: 0 10px 10px 0;
+      color: var(--navy-dark);
+      background: #f0f6f8;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+    .video-link {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-top: .8rem;
+      padding: .8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 760;
+    }
+    .video-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #b93333;
+      font-size: .8rem;
+    }
+    .exercise-list { margin: .5rem 0 0; padding-left: 1.3rem; }
+    .exercise-list li { margin-bottom: .75rem; padding-left: .2rem; }
+    .level {
+      display: inline-block;
+      margin-right: .35rem;
+      padding: .1rem .4rem;
+      border-radius: 6px;
+      color: var(--mint-dark);
+      background: var(--mint);
+      font-size: .72rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .level.intermediate { color: var(--blue-dark); background: var(--blue); }
+    .level.challenge { color: var(--sand-dark); background: var(--sand); }
+    .workshop-tools { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+
+    .quiz-question {
+      margin: 0 0 1rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfdfd;
+    }
+    .quiz-question legend { padding: 0 .25rem; font-weight: 780; line-height: 1.35; }
+    .option {
+      display: flex;
+      min-height: 40px;
+      align-items: flex-start;
+      gap: .55rem;
+      margin-top: .35rem;
+      padding: .45rem .55rem;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+    .option:hover { background: var(--blue); }
+    .option input { margin-top: .33rem; accent-color: var(--navy); }
+    .feedback { min-height: 1.5rem; margin: .3rem 0 0; font-size: .9rem; font-weight: 720; }
+    .feedback.correct { color: var(--success); }
+    .feedback.incorrect { color: var(--danger); }
+    .quiz-result {
+      min-height: 2rem;
+      margin: .8rem 0 0;
+      padding: .7rem .8rem;
+      border-radius: 10px;
+      background: var(--wash);
+      font-weight: 820;
+    }
+
+    .resource-band { color: #fff; background: var(--navy-dark); }
+    .resource-band {
+      background:
+        linear-gradient(115deg, rgba(0, 156, 80, .24), transparent 50%),
+        var(--navy-dark);
+    }
+    .resource-band .section-heading p { color: #dbf3e6; }
+    .resource-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .resource-card {
+      padding: 1.3rem;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.08);
+    }
+    .resource-card h3 { margin: 0 0 .45rem; }
+    .resource-card p { color: #dbf3e6; }
+    .resource-card a { color: #fff572; }
+    .study-list { margin: 0; padding-left: 1.15rem; color: var(--muted); }
+    .study-list li { margin-bottom: .45rem; }
+    .source-note {
+      padding: 1.1rem;
+      border-left: 4px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      color: var(--muted);
+      background: var(--blue);
+    }
+    footer {
+      padding: 2rem 1rem;
+      color: #e3eee8;
+      background: #222a26;
+      text-align: center;
+      border-top: 5px solid var(--institutional-yellow);
+    }
+    footer p { margin: .25rem 0; }
+    footer a { color: #fff; }
+
+    .toast {
+      position: fixed;
+      z-index: 100;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: min(360px, calc(100% - 2rem));
+      padding: .9rem 1rem;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--navy-dark);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: .2s ease;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .back-top {
+      position: fixed;
+      z-index: 40;
+      right: 1rem;
+      bottom: 1rem;
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #fff;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+      font-weight: 900;
+    }
+    .back-top.visible { display: block; }
+
+    @media (max-width: 980px) {
+      .nav-wrap { flex-wrap: wrap; padding: .6rem 0; }
+      .main-nav { width: 100%; order: 2; }
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; }
+      .hero-panel { max-width: 620px; min-height: auto; }
+      .topic-grid { grid-template-columns: 1fr 1fr; }
+      .topic-card:last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 122px; }
+      .brand-text { font-size: .93rem; }
+      .hero-inner { padding: 3.6rem 0; }
+      .hero-panel { display: none; }
+      .section { padding: 3.3rem 0; }
+      .intro-grid, .study-grid, .resource-cards, .topic-grid { grid-template-columns: 1fr; }
+      .topic-card:last-child { grid-column: auto; }
+      .topic-top, .topic-actions { padding-left: 1.1rem; padding-right: 1.1rem; }
+      .topic-details { margin-left: 1.1rem; margin-right: 1.1rem; }
+      .button { width: 100%; }
+      .topic-actions .button, .workshop-tools .button { width: auto; flex: 1 1 150px; }
+    }
+    @media print {
+      .site-header, .hero-actions, .topic-actions, .video-link, .workshop-tools,
+      .quiz-actions, .back-top, .toast, footer { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .hero { color: #000; background: #fff; }
+      .hero-inner { min-height: auto; padding: 1rem 0; grid-template-columns: 1fr; }
+      .hero-panel { display: none; }
+      .hero-copy, .eyebrow { color: #333; }
+      .section { padding: 1rem 0; }
+      .topic-grid { display: block; }
+      .topic-card { break-inside: avoid; margin-bottom: 1rem; box-shadow: none; }
+      .topic-details { display: block; }
+      .topic-details > summary { display: none; }
+      .details-content { display: block !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">∑</span>
+        <span class="brand-text">Matemáticas para aprender</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#ciclo-67">6.º y 7.º</a>
+        <a href="#ciclo-89">8.º y 9.º</a>
+        <a href="#ciclo-1011">10.º y 11.º</a>
+        <a href="#talleres">Talleres</a>
+        <a href="#cuestionarios">Cuestionarios</a>
+        <a href="#recomendaciones">Cómo estudiar</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Educación básica secundaria y media · Colombia</p>
+        <h1>Matemáticas para aprender, repasar y practicar</h1>
+        <p class="hero-copy">Recursos organizados por ciclos para fortalecer tus aprendizajes con explicaciones breves, práctica gradual y retroalimentación inmediata.</p>
+        <div class="hero-actions">
+          <a class="button light" href="#ciclo-67">Elegir mi ciclo ↓</a>
+          <a class="button ghost" href="#como-usar">¿Cómo usar la página?</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Ejemplos de la progresión matemática">
+        <div class="math-line"><span>Comprender</span><span class="math-symbol">¾ = 75%</span></div>
+        <div class="math-line"><span>Representar</span><span class="math-symbol">y = 2x + 1</span></div>
+        <div class="math-line"><span>Modelar</span><span class="math-symbol">f′(x)</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <main id="contenido">
+    <section class="section" id="como-usar">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" style="color:var(--mint-dark)">Una ruta corta y clara</p>
+          <h2>Aprende en tres momentos</h2>
+          <p>No tienes que completar todo de una vez. Escoge un tema de tu ciclo y avanza a tu ritmo.</p>
+        </div>
+        <div class="intro-grid">
+          <article class="info-card">
+            <span class="number">1</span>
+            <h3>Comprende</h3>
+            <p>Lee la explicación, revisa los conceptos clave y observa el video recomendado.</p>
+          </article>
+          <article class="info-card">
+            <span class="number">2</span>
+            <h3>Practica</h3>
+            <p>Resuelve el taller en tu cuaderno, desde el ejercicio básico hasta el reto contextual.</p>
+          </article>
+          <article class="info-card">
+            <span class="number">3</span>
+            <h3>Comprueba</h3>
+            <p>Responde el cuestionario y usa la retroalimentación para corregir tus procedimientos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div id="cycles-root"></div>
+
+    <section class="section resource-band" id="talleres">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Talleres y recursos</h2>
+          <p>Cada tema incluye cuatro ejercicios para resolver en el cuaderno. Puedes copiar el taller o descargarlo como archivo de texto desde la tarjeta del tema.</p>
+        </div>
+        <div class="resource-cards">
+          <article class="resource-card">
+            <h3>Práctica progresiva</h3>
+            <p>Empieza con un procedimiento directo, continúa con una aplicación y termina con un reto.</p>
+            <a href="#ciclo-67">Ir a 6.º y 7.º</a>
+          </article>
+          <article class="resource-card">
+            <h3>Álgebra y geometría</h3>
+            <p>Relaciona expresiones, gráficas, ecuaciones y situaciones geométricas.</p>
+            <a href="#ciclo-89">Ir a 8.º y 9.º</a>
+          </article>
+          <article class="resource-card">
+            <h3>Modelación y Saber 11.º</h3>
+            <p>Practica interpretación, formulación, ejecución y argumentación en contexto.</p>
+            <a href="#ciclo-1011">Ir a 10.º y 11.º</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cuestionarios">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" style="color:var(--blue-dark)">Retroalimentación inmediata</p>
+          <h2>¿Cómo funcionan los cuestionarios?</h2>
+          <p>Selecciona una respuesta en cada pregunta y pulsa “Comprobar”. La página te indicará qué revisar, sin registrar ni enviar tus datos.</p>
+        </div>
+        <div class="source-note">Consejo: antes de mirar la respuesta, escribe en tu cuaderno el procedimiento o la razón de tu elección. Acertar sin poder explicarlo todavía no demuestra comprensión.</div>
+      </div>
+    </section>
+
+    <section class="section" id="recomendaciones">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" style="color:var(--sand-dark)">Hábitos que sí ayudan</p>
+          <h2>Recomendaciones de estudio</h2>
+        </div>
+        <div class="study-grid">
+          <article class="info-card">
+            <h3>Sesiones breves</h3>
+            <ul class="study-list">
+              <li>Estudia entre 20 y 30 minutos.</li>
+              <li>Trabaja un solo tema por sesión.</li>
+              <li>Descansa y regresa a un ejercicio difícil.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Procedimiento visible</h3>
+            <ul class="study-list">
+              <li>Escribe los datos y lo que debes hallar.</li>
+              <li>Anota unidades en cada resultado.</li>
+              <li>Comprueba si la respuesta es razonable.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Aprender del error</h3>
+            <ul class="study-list">
+              <li>Marca el paso exacto donde te equivocaste.</li>
+              <li>Explica la corrección con tus palabras.</li>
+              <li>Resuelve otro ejercicio parecido sin mirar.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="referentes">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" style="color:var(--mint-dark)">Referentes colombianos</p>
+          <h2>Base curricular de esta selección</h2>
+        </div>
+        <p class="source-note">Los temas se priorizaron a partir de los cinco pensamientos matemáticos y de los procesos de resolución de problemas, modelación, comunicación, razonamiento y ejercitación. Esta página es un recurso de refuerzo; no reemplaza el plan de área, el PEI ni la orientación del docente.</p>
+        <ul>
+          <li><a href="https://www.mineducacion.gov.co/1621/articles-340021_recurso_1.pdf" target="_blank" rel="noopener noreferrer">MEN: Estándares Básicos de Competencias</a></li>
+          <li><a href="https://www.colombiaaprende.edu.co/sites/default/files/files_public/2026-06/dba_matematicas-min.pdf" target="_blank" rel="noopener noreferrer">Colombia Aprende: Derechos Básicos de Aprendizaje de Matemáticas</a></li>
+          <li><a href="https://www.icfes.gov.co/evaluaciones-icfes/saber-11/marcos-de-referencia-examen-saber-11/" target="_blank" rel="noopener noreferrer">ICFES: marco de referencia de Matemáticas, Saber 11.º</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Matemáticas para aprender, repasar y practicar</strong></p>
+    <p>Recurso educativo de apoyo · Adaptable al plan de área institucional</p>
+    <p><a href="#inicio">Volver al inicio ↑</a></p>
+  </footer>
+
+  <button class="back-top" type="button" aria-label="Volver al inicio" title="Volver al inicio">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const cycles = [
+      {
+        id: "ciclo-67",
+        className: "cycle-67",
+        label: "Ciclo 6.º y 7.º",
+        title: "Consolidar el sentido numérico",
+        description: "En este ciclo se conectan fracciones, decimales y porcentajes con situaciones de medida, proporcionalidad, datos y azar.",
+        topics: [
+          {
+            id: "racionales",
+            title: "Números racionales y porcentajes",
+            importance: "Permiten comparar cantidades, interpretar descuentos, medir y tomar decisiones con información numérica.",
+            summary: "Un número racional puede escribirse como fracción a/b, con b ≠ 0. También puede representarse como decimal, razón o porcentaje.",
+            concepts: ["fracción", "decimal", "porcentaje", "recta numérica", "operaciones"],
+            formula: "Porcentaje de una cantidad = (porcentaje ÷ 100) × cantidad",
+            videoTitle: "Operaciones con números racionales · julioprofe",
+            videoUrl: "https://www.youtube.com/watch?v=ry-xn1YZX1c",
+            exercises: [
+              ["Básico", "Calcula: −3/4 + 5/8."],
+              ["Básico", "Halla el 18% de 250."],
+              ["Intermedio", "Expresa 0,375 como fracción irreducible y como porcentaje."],
+              ["Reto contextual", "Una chaqueta cuesta $120.000 y tiene 15% de descuento. ¿Cuál es el precio final? Explica el procedimiento."]
+            ],
+            quiz: [
+              {q:"¿Cuál es el resultado de −2 + 5/4?", options:["−3/4","−1/4","3/4","13/4"], answer:0, feedback:"Convierte −2 en −8/4 y suma: −8/4 + 5/4 = −3/4."},
+              {q:"¿Cuánto es el 30% de 80?", options:["18","24","30","50"], answer:1, feedback:"30/100 × 80 = 24."},
+              {q:"¿Qué fracción equivale a 0,625?", options:["3/5","5/8","6/25","8/5"], answer:1, feedback:"0,625 = 625/1000 = 5/8."}
+            ]
+          },
+          {
+            id: "proporcionalidad",
+            title: "Proporcionalidad directa e inversa",
+            importance: "Ayuda a resolver problemas de precios, recetas, escalas, velocidad, producción y reparto.",
+            summary: "Dos magnitudes son directamente proporcionales cuando aumentan o disminuyen en la misma razón. Son inversamente proporcionales cuando el producto se mantiene constante.",
+            concepts: ["razón", "proporción", "tasa", "regla de tres", "escala"],
+            formula: "Directa: y = kx · Inversa: x · y = k",
+            videoTitle: "Razones y proporciones: introducción",
+            videoUrl: "https://www.youtube.com/watch?v=Jz-GPF9iHo8",
+            exercises: [
+              ["Básico", "Si 3 cuadernos cuestan $12.000, ¿cuánto cuestan 7 al mismo precio unitario?"],
+              ["Intermedio", "Cinco trabajadores realizan una tarea en 12 días. Si trabajan al mismo ritmo, ¿cuántos días tardan 10 trabajadores?"],
+              ["Intermedio", "Una receta para 4 personas usa 300 g de harina. ¿Cuánta harina se necesita para 10 personas?"],
+              ["Reto contextual", "Una bicicleta mantiene 18 km/h durante 2,5 horas. ¿Qué distancia recorre? ¿Qué supuesto estás haciendo?"]
+            ],
+            quiz: [
+              {q:"Si y = 4x, ¿cuánto vale y cuando x = 6?", options:["10","18","24","30"], answer:2, feedback:"Sustituye x: y = 4 × 6 = 24."},
+              {q:"¿Qué se mantiene constante en una proporcionalidad inversa?", options:["x + y","x − y","x/y","x · y"], answer:3, feedback:"En la relación inversa, el producto x · y permanece constante."},
+              {q:"Ocho máquinas terminan un trabajo en 6 horas. Doce máquinas iguales tardan:", options:["4 h","6 h","9 h","18 h"], answer:0, feedback:"8 × 6 = 48 máquina-horas; 48 ÷ 12 = 4 horas."}
+            ]
+          },
+          {
+            id: "datos-azar",
+            title: "Datos, medidas centrales y probabilidad",
+            importance: "Permite leer encuestas y gráficas, resumir información y estimar qué tan posible es un evento.",
+            summary: "La media, mediana y moda describen el centro de un conjunto de datos. La probabilidad compara casos favorables con casos posibles.",
+            concepts: ["tabla", "gráfica", "media", "mediana", "moda", "probabilidad"],
+            formula: "Media = suma de los datos ÷ número de datos · P(A) = casos favorables ÷ casos posibles",
+            videoTitle: "Media, moda y mediana · explicación básica",
+            videoUrl: "https://www.youtube.com/watch?v=0DA7Wtz1ddg",
+            exercises: [
+              ["Básico", "Para los datos 2, 4, 4, 5 y 7, calcula media, mediana y moda."],
+              ["Básico", "Al lanzar un dado justo, ¿cuál es la probabilidad de obtener un número par?"],
+              ["Intermedio", "En una encuesta: fútbol 12, música 8, lectura 5 y videojuegos 15. Construye una tabla y un diagrama de barras."],
+              ["Reto contextual", "Compara los conjuntos A = {3, 3, 4, 4, 6} y B = {1, 3, 4, 5, 7}. Tienen la misma media. ¿Cuál parece más disperso y por qué?"]
+            ],
+            quiz: [
+              {q:"¿Cuál es la mediana de 3, 5, 8, 10 y 12?", options:["5","7,6","8","10"], answer:2, feedback:"Al ordenar cinco datos, la mediana es el valor central: 8."},
+              {q:"Una bolsa tiene 3 fichas rojas y 7 azules. P(roja) es:", options:["3/7","3/10","7/10","1/3"], answer:1, feedback:"Hay 3 casos favorables entre 10 fichas."},
+              {q:"En 2, 2, 3, 5, 5, 5, 7, la moda es:", options:["2","3","5","7"], answer:2, feedback:"El 5 es el dato con mayor frecuencia."}
+            ]
+          }
+        ]
+      },
+      {
+        id: "ciclo-89",
+        className: "cycle-89",
+        label: "Ciclo 8.º y 9.º",
+        title: "Pasar de la aritmética al álgebra",
+        description: "En este ciclo las relaciones se expresan con símbolos, ecuaciones, funciones y modelos geométricos.",
+        topics: [
+          {
+            id: "algebra-ecuaciones",
+            title: "Expresiones, ecuaciones y sistemas",
+            importance: "El álgebra permite representar cantidades desconocidas y resolver situaciones con varias condiciones.",
+            summary: "Una expresión combina números, variables y operaciones. Una ecuación afirma una igualdad; un sistema reúne dos o más ecuaciones que deben cumplirse simultáneamente.",
+            concepts: ["variable", "término", "equivalencia", "ecuación", "sistema 2×2"],
+            formula: "Si a = b, se conserva la igualdad al realizar la misma operación en ambos lados.",
+            videoTitle: "Sistema 2×2 por eliminación · julioprofe",
+            videoUrl: "https://www.youtube.com/watch?v=7dos7zJQevs",
+            exercises: [
+              ["Básico", "Reduce términos semejantes: 3x + 2 − 5x + 7."],
+              ["Básico", "Resuelve: 4x − 7 = 21."],
+              ["Intermedio", "Resuelve el sistema x + y = 11; x − y = 3."],
+              ["Reto contextual", "En una función se vendieron 20 entradas: adulto a $12.000 y estudiante a $8.000. Se recaudaron $184.000. ¿Cuántas entradas de cada tipo se vendieron?"]
+            ],
+            quiz: [
+              {q:"¿Cuál expresión equivale a 3(2x − 1)?", options:["6x − 1","6x − 3","5x − 3","6x + 3"], answer:1, feedback:"Distribuye el 3 a cada término: 6x − 3."},
+              {q:"La solución de 2x + 5 = 17 es:", options:["x = 5","x = 6","x = 7","x = 11"], answer:1, feedback:"Resta 5 y divide entre 2: x = 6."},
+              {q:"En x + y = 9 y 2x + y = 14, la solución es:", options:["(4,5)","(5,4)","(6,3)","(7,2)"], answer:1, feedback:"Al restar las ecuaciones se obtiene x = 5; entonces y = 4."}
+            ]
+          },
+          {
+            id: "funciones-89",
+            title: "Funciones lineales y cuadráticas",
+            importance: "Sirven para estudiar relaciones entre variables, reconocer tendencias y modelar costos, movimientos y trayectorias.",
+            summary: "Una función asigna a cada entrada un único valor de salida. La función lineal tiene tasa de cambio constante; la cuadrática produce una parábola.",
+            concepts: ["dominio", "rango", "pendiente", "intercepto", "parábola", "vértice"],
+            formula: "Lineal: y = mx + b · Cuadrática: y = ax² + bx + c",
+            videoTitle: "Funciones lineales: problema contextual · julioprofe",
+            videoUrl: "https://www.youtube.com/watch?v=gCqprj3jTzQ",
+            exercises: [
+              ["Básico", "Calcula la pendiente de la recta que pasa por (1, 3) y (4, 9)."],
+              ["Básico", "Para y = −3x + 5, calcula y cuando x = 2."],
+              ["Intermedio", "Halla el vértice de y = x² − 6x + 5."],
+              ["Reto contextual", "Un taxi cobra $5.000 de base y $2.000 por kilómetro. Escribe la función del costo y calcula el valor de un recorrido de 8 km."]
+            ],
+            quiz: [
+              {q:"En y = 2x + 1, la pendiente es:", options:["1","2","−2","x"], answer:1, feedback:"En y = mx + b, m es la pendiente; aquí m = 2."},
+              {q:"El vértice de y = x² − 4x + 3 tiene coordenada x igual a:", options:["−4","−2","2","4"], answer:2, feedback:"xᵥ = −b/(2a) = 4/2 = 2."},
+              {q:"Los ceros de (x − 2)(x + 3) son:", options:["2 y 3","−2 y 3","2 y −3","−2 y −3"], answer:2, feedback:"Cada factor se iguala a cero: x = 2 y x = −3."}
+            ]
+          },
+          {
+            id: "geometria-89",
+            title: "Semejanza y teorema de Pitágoras",
+            importance: "Permite calcular distancias inaccesibles, trabajar con planos y justificar relaciones entre triángulos.",
+            summary: "Los triángulos semejantes conservan sus ángulos y tienen lados proporcionales. En un triángulo rectángulo, el cuadrado de la hipotenusa equivale a la suma de los cuadrados de los catetos.",
+            concepts: ["semejanza", "escala", "cateto", "hipotenusa", "Pitágoras"],
+            formula: "a² + b² = c², donde c es la hipotenusa",
+            videoTitle: "Teorema de Pitágoras: explicación escolar",
+            videoUrl: "https://www.youtube.com/watch?v=OETZ-R9DOUc",
+            exercises: [
+              ["Básico", "Un triángulo rectángulo tiene catetos de 6 cm y 8 cm. Halla la hipotenusa."],
+              ["Básico", "La hipotenusa mide 13 m y un cateto 5 m. Halla el otro cateto."],
+              ["Intermedio", "En una maqueta a escala 1:50, una pared mide 12 cm. ¿Cuánto mide en la realidad?"],
+              ["Reto contextual", "Un poste de 1,5 m proyecta una sombra de 2 m. A la misma hora, un árbol proyecta 10 m de sombra. Estima la altura del árbol."]
+            ],
+            quiz: [
+              {q:"En un triángulo rectángulo, la hipotenusa está:", options:["Junto al ángulo recto","Opuesta al ángulo recto","Siempre vertical","Siempre abajo"], answer:1, feedback:"La hipotenusa es el lado opuesto al ángulo de 90°."},
+              {q:"¿El triángulo de lados 9, 12 y 15 es rectángulo?", options:["Sí","No","Solo si 9 es hipotenusa","No se puede saber"], answer:0, feedback:"9² + 12² = 81 + 144 = 225 = 15²."},
+              {q:"Un triángulo semejante al de lados 3, 4 y 5, con factor 2, tiene lados:", options:["5, 6, 7","6, 8, 10","3, 8, 10","1,5; 2; 2,5"], answer:1, feedback:"Multiplica cada lado por el mismo factor: 6, 8 y 10."}
+            ]
+          }
+        ]
+      },
+      {
+        id: "ciclo-1011",
+        className: "cycle-1011",
+        label: "Ciclo 10.º y 11.º",
+        title: "Modelar, interpretar y argumentar",
+        description: "En la media se profundiza en funciones, cambio, trigonometría, estadística y probabilidad para analizar fenómenos y tomar decisiones.",
+        topics: [
+          {
+            id: "trigonometria",
+            title: "Funciones y modelación trigonométrica",
+            importance: "La trigonometría relaciona ángulos y longitudes y permite modelar alturas, ondas y fenómenos periódicos.",
+            summary: "En un triángulo rectángulo, seno, coseno y tangente son razones entre lados. Como funciones, permiten describir variaciones periódicas.",
+            concepts: ["seno", "coseno", "tangente", "amplitud", "periodo", "modelación"],
+            formula: "sen θ = opuesto/hipotenusa · cos θ = adyacente/hipotenusa · tan θ = opuesto/adyacente",
+            videoTitle: "Funciones trigonométricas en triángulo rectángulo · julioprofe",
+            videoUrl: "https://www.youtube.com/watch?v=ebc9KdxBQs0",
+            exercises: [
+              ["Básico", "En un triángulo rectángulo, θ = 35° y la hipotenusa mide 12 cm. Halla el cateto opuesto."],
+              ["Intermedio", "Desde un punto a 20 m de un edificio se observa la parte alta con un ángulo de elevación de 28°. Estima la altura, sin incluir la del observador."],
+              ["Intermedio", "Determina el periodo de f(t) = 2·sen(πt/6)."],
+              ["Reto contextual", "Una rueda de la fortuna tiene radio 8 m y su centro está a 10 m del suelo. ¿Entre qué alturas se mueve una cabina? Explica amplitud y línea media."]
+            ],
+            quiz: [
+              {q:"cos θ relaciona:", options:["Opuesto/hipotenusa","Adyacente/hipotenusa","Opuesto/adyacente","Hipotenusa/adyacente"], answer:1, feedback:"El coseno es cateto adyacente dividido entre hipotenusa."},
+              {q:"tan 45° es:", options:["0","1/2","1","√2"], answer:2, feedback:"En un triángulo 45°-45°-90°, los catetos son iguales; su razón es 1."},
+              {q:"El periodo de sen(2πt/5) es:", options:["2π","5","5/2","10"], answer:1, feedback:"Para sen(2πt/T), el periodo es T; aquí T = 5."}
+            ]
+          },
+          {
+            id: "derivada",
+            title: "Razón de cambio y derivada",
+            importance: "Permite estudiar velocidad, crecimiento, optimización y cómo cambia una cantidad respecto de otra.",
+            summary: "La razón de cambio media compara variaciones en un intervalo. La derivada describe el cambio instantáneo y la pendiente de la recta tangente.",
+            concepts: ["razón de cambio", "pendiente", "límite", "derivada", "máximo", "mínimo"],
+            formula: "Razón media = [f(b) − f(a)]/(b − a) · f′(x) = cambio instantáneo",
+            videoTitle: "Interpretación geométrica de la derivada",
+            videoUrl: "https://www.youtube.com/watch?v=fRxLP3pAHio",
+            exercises: [
+              ["Básico", "Para f(t) = t², calcula la razón de cambio media entre t = 2 y t = 5."],
+              ["Intermedio", "Deriva f(x) = 3x² − 4x + 1 y calcula f′(2)."],
+              ["Intermedio", "La altura de un objeto es h(t) = −5t² + 20t + 1. ¿En qué instante alcanza su altura máxima y cuál es?"],
+              ["Reto contextual", "El costo de producir q unidades es C(q) = 0,5q² + 20q + 100. Interpreta C′(30) en el contexto."]
+            ],
+            quiz: [
+              {q:"La derivada de x³ es:", options:["x²","2x","3x²","3x"], answer:2, feedback:"Por la regla de la potencia: d(x³)/dx = 3x²."},
+              {q:"La pendiente de f(x) = x² en x = 3 es:", options:["3","6","9","12"], answer:1, feedback:"f′(x) = 2x; por tanto, f′(3) = 6."},
+              {q:"Un punto crítico interior suele buscarse resolviendo:", options:["f(x)=1","f′(x)=0","x=0 siempre","f′(x)=1"], answer:1, feedback:"Los candidatos a máximo o mínimo aparecen donde f′(x)=0 o no existe."}
+            ]
+          },
+          {
+            id: "estadistica-1011",
+            title: "Estadística y probabilidad condicional",
+            importance: "Ayuda a evaluar estudios, interpretar riesgos y argumentar decisiones basadas en datos, competencias centrales en Saber 11.º.",
+            summary: "La estadística describe muestras y distribuciones. La probabilidad condicional actualiza la posibilidad de un evento cuando se conoce información adicional.",
+            concepts: ["población", "muestra", "dispersión", "cuartil", "probabilidad condicional", "independencia"],
+            formula: "P(A|B) = P(A ∩ B) / P(B), siempre que P(B) > 0",
+            videoTitle: "Probabilidad: conceptos básicos",
+            videoUrl: "https://www.youtube.com/watch?v=WeeEE8o1aqM",
+            exercises: [
+              ["Básico", "Para 4, 6, 6, 8 y 11, calcula media, mediana y rango."],
+              ["Intermedio", "En un grupo hay 20 mujeres y 8 practican deporte. Si se elige una mujer al azar, calcula P(deporte | mujer)."],
+              ["Intermedio", "Una bolsa tiene 4 fichas rojas y 6 azules. Se extraen dos sin reemplazo. Calcula P(segunda roja | primera roja)."],
+              ["Reto contextual", "Un titular afirma: “9 de cada 10 estudiantes prefieren estudiar en línea”, pero solo se encuestó a 20 voluntarios de un curso virtual. Evalúa la inferencia y propone un mejor muestreo."]
+            ],
+            quiz: [
+              {q:"Si una bolsa tiene 4 rojas y 6 azules, P(segunda roja | primera roja), sin reemplazo, es:", options:["4/10","3/9","4/9","3/10"], answer:1, feedback:"Después de extraer una roja quedan 3 rojas entre 9 fichas."},
+              {q:"Una muestra representativa debe:", options:["Ser siempre pequeña","Elegir solo voluntarios","Reflejar características relevantes de la población","Dar el resultado esperado"], answer:2, feedback:"La representatividad permite inferencias más válidas sobre la población."},
+              {q:"El rango intercuartílico se calcula como:", options:["Q₁ + Q₃","Q₃ − Q₁","máximo − mínimo","media ÷ mediana"], answer:1, feedback:"El RIC mide la amplitud del 50% central: Q₃ − Q₁."}
+            ]
+          }
+        ]
+      }
+    ];
+
+    const escapeHtml = (text) => String(text)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    function levelClass(label) {
+      if (label.toLowerCase().includes("reto")) return "challenge";
+      if (label.toLowerCase().includes("intermedio")) return "intermediate";
+      return "";
+    }
+
+    function renderQuiz(topic) {
+      return topic.quiz.map((item, index) => `
+        <fieldset class="quiz-question" data-question="${index}">
+          <legend>${index + 1}. ${escapeHtml(item.q)}</legend>
+          ${item.options.map((option, optionIndex) => `
+            <label class="option">
+              <input type="radio" name="${topic.id}-q${index}" value="${optionIndex}">
+              <span>${String.fromCharCode(65 + optionIndex)}. ${escapeHtml(option)}</span>
+            </label>
+          `).join("")}
+          <p class="feedback" id="${topic.id}-feedback-${index}" aria-live="polite"></p>
+        </fieldset>
+      `).join("");
+    }
+
+    function renderTopic(topic, index) {
+      return `
+        <article class="topic-card" id="${topic.id}">
+          <div class="topic-top">
+            <span class="topic-index">Tema ${index + 1}</span>
+            <h3>${escapeHtml(topic.title)}</h3>
+            <p>${escapeHtml(topic.importance)}</p>
+          </div>
+
+          <details class="topic-details">
+            <summary>Explicación y video</summary>
+            <div class="details-content">
+              <h4>¿Por qué es importante?</h4>
+              <p>${escapeHtml(topic.importance)}</p>
+              <h4>Idea esencial</h4>
+              <p>${escapeHtml(topic.summary)}</p>
+              <div class="formula">${escapeHtml(topic.formula)}</div>
+              <h4>Conceptos clave</h4>
+              <ul class="concepts">${topic.concepts.map(c => `<li>${escapeHtml(c)}</li>`).join("")}</ul>
+              <a class="video-link" href="${topic.videoUrl}" target="_blank" rel="noopener noreferrer">
+                <span class="video-icon" aria-hidden="true">▶</span>
+                <span>${escapeHtml(topic.videoTitle)}<br><small>Se abre en una pestaña nueva</small></span>
+              </a>
+            </div>
+          </details>
+
+          <details class="topic-details" id="${topic.id}-taller">
+            <summary>Taller de repaso · 4 ejercicios</summary>
+            <div class="details-content">
+              <p><strong>Instrucción:</strong> resuelve en tu cuaderno, muestra el procedimiento y escribe las unidades cuando corresponda.</p>
+              <ol class="exercise-list">
+                ${topic.exercises.map(ex => `<li><span class="level ${levelClass(ex[0])}">${escapeHtml(ex[0])}</span>${escapeHtml(ex[1])}</li>`).join("")}
+              </ol>
+              <div class="workshop-tools">
+                <button class="button secondary small" type="button" onclick="copyWorkshop('${topic.id}')">Copiar taller</button>
+                <button class="button secondary small" type="button" onclick="downloadWorkshop('${topic.id}')">Descargar .txt</button>
+              </div>
+            </div>
+          </details>
+
+          <details class="topic-details" id="${topic.id}-quiz">
+            <summary>Cuestionario de práctica · 3 preguntas</summary>
+            <div class="details-content">
+              <form onsubmit="checkQuiz(event, '${topic.id}')">
+                ${renderQuiz(topic)}
+                <div class="quiz-actions">
+                  <button class="button small" type="submit">Comprobar respuestas</button>
+                  <button class="button secondary small" type="button" onclick="resetQuiz('${topic.id}')">Intentar de nuevo</button>
+                </div>
+                <p class="quiz-result" id="${topic.id}-result" aria-live="polite">Responde las tres preguntas.</p>
+              </form>
+            </div>
+          </details>
+
+          <details class="topic-details">
+            <summary>Reto final y recomendación</summary>
+            <div class="details-content">
+              <h4>Reto contextual</h4>
+              <p>${escapeHtml(topic.exercises[topic.exercises.length - 1][1])}</p>
+              <h4>Recomendación</h4>
+              <p>Representa la situación, explica por qué eliges cada operación y revisa si tu respuesta tiene sentido en el contexto.</p>
+            </div>
+          </details>
+
+          <div class="topic-actions">
+            <button class="button small" type="button" onclick="openPart('${topic.id}', 'taller')">Abrir taller</button>
+            <button class="button secondary small" type="button" onclick="openPart('${topic.id}', 'quiz')">Practicar</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderCycles() {
+      const root = document.getElementById("cycles-root");
+      root.innerHTML = cycles.map(cycle => `
+        <section class="section cycle ${cycle.className}" id="${cycle.id}">
+          <div class="container">
+            <div class="section-heading">
+              <span class="cycle-label">${escapeHtml(cycle.label)}</span>
+              <h2>${escapeHtml(cycle.title)}</h2>
+              <p>${escapeHtml(cycle.description)}</p>
+            </div>
+            <div class="topic-grid">
+              ${cycle.topics.map(renderTopic).join("")}
+            </div>
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function getTopic(topicId) {
+      for (const cycle of cycles) {
+        const topic = cycle.topics.find(item => item.id === topicId);
+        if (topic) return topic;
+      }
+      return null;
+    }
+
+    function workshopText(topic) {
+      return `${topic.title.toUpperCase()}\n\nInstrucciones: resuelve en tu cuaderno, muestra el procedimiento y escribe las unidades cuando corresponda.\n\n` +
+        topic.exercises.map((exercise, index) => `${index + 1}. [${exercise[0]}] ${exercise[1]}`).join("\n\n") +
+        `\n\nRecomendación: representa la situación, explica cada operación y revisa si el resultado es razonable.`;
+    }
+
+    async function copyWorkshop(topicId) {
+      const topic = getTopic(topicId);
+      if (!topic) return;
+      try {
+        await navigator.clipboard.writeText(workshopText(topic));
+        showToast("Taller copiado. Ya puedes pegarlo en un documento o mensaje.");
+      } catch {
+        const temp = document.createElement("textarea");
+        temp.value = workshopText(topic);
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        temp.remove();
+        showToast("Taller copiado.");
+      }
+    }
+
+    function downloadWorkshop(topicId) {
+      const topic = getTopic(topicId);
+      if (!topic) return;
+      const blob = new Blob([workshopText(topic)], {type: "text/plain;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `taller_${topicId}.txt`;
+      link.click();
+      URL.revokeObjectURL(url);
+      showToast("Taller descargado como archivo de texto.");
+    }
+
+    function checkQuiz(event, topicId) {
+      event.preventDefault();
+      const topic = getTopic(topicId);
+      const form = event.currentTarget;
+      let score = 0;
+      let answered = 0;
+
+      topic.quiz.forEach((item, index) => {
+        const selected = form.querySelector(`input[name="${topicId}-q${index}"]:checked`);
+        const feedback = document.getElementById(`${topicId}-feedback-${index}`);
+        feedback.className = "feedback";
+        if (!selected) {
+          feedback.textContent = "Selecciona una opción.";
+          feedback.classList.add("incorrect");
+          return;
+        }
+        answered++;
+        if (Number(selected.value) === item.answer) {
+          score++;
+          feedback.textContent = `Correcto. ${item.feedback}`;
+          feedback.classList.add("correct");
+        } else {
+          feedback.textContent = `Revisa. ${item.feedback}`;
+          feedback.classList.add("incorrect");
+        }
+      });
+
+      const result = document.getElementById(`${topicId}-result`);
+      if (answered < topic.quiz.length) {
+        result.textContent = `Has respondido ${answered} de ${topic.quiz.length}. Completa las preguntas pendientes.`;
+      } else if (score === topic.quiz.length) {
+        result.textContent = `¡Muy bien! ${score}/${topic.quiz.length}. Explica ahora una respuesta con tus propias palabras.`;
+      } else {
+        result.textContent = `Resultado: ${score}/${topic.quiz.length}. Revisa la retroalimentación y vuelve a intentarlo.`;
+      }
+    }
+
+    function resetQuiz(topicId) {
+      const details = document.getElementById(`${topicId}-quiz`);
+      const form = details.querySelector("form");
+      form.reset();
+      form.querySelectorAll(".feedback").forEach(item => {
+        item.textContent = "";
+        item.className = "feedback";
+      });
+      document.getElementById(`${topicId}-result`).textContent = "Responde las tres preguntas.";
+      form.querySelector("input")?.focus();
+    }
+
+    function openPart(topicId, part) {
+      const details = document.getElementById(`${topicId}-${part}`);
+      details.open = true;
+      details.scrollIntoView({behavior: "smooth", block: "start"});
+      window.setTimeout(() => details.querySelector("summary")?.focus(), 450);
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 3000);
+    }
+
+    renderCycles();
+
+    const backTop = document.querySelector(".back-top");
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("visible", window.scrollY > 700);
+    }, {passive: true});
+    backTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+  </script>
+</body>
+</html>
